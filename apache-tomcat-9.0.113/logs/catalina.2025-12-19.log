@@ -1,0 +1,1 @@
+19-Dec-2025 22:15:55.869 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.

@@ -1,0 +1,562 @@
+18-Jan-2026 00:35:11.593 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.113
+18-Jan-2026 00:35:11.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 2 2025 19:51:24 UTC
+18-Jan-2026 00:35:11.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.113.0
+18-Jan-2026 00:35:11.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+18-Jan-2026 00:35:11.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.10+11-LTS-240
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 00:35:11.598 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 00:35:11.615 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Jan-2026 00:35:11.615 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+18-Jan-2026 00:35:11.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+18-Jan-2026 00:35:11.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Jan-2026 00:35:11.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Jan-2026 00:35:11.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Jan-2026 00:35:11.616 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\conf\logging.properties
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+18-Jan-2026 00:35:11.617 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Jan-2026 00:35:11.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 00:35:11.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 00:35:11.618 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\temp
+18-Jan-2026 00:35:11.630 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\Win64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\DevExpress\VCL\Library\RS28;C:\Program Files (x86)\DevExpress\VCL\Library\RS28\Win64;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2025a\bin;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\;C:\Users\kacpe\AppData\Local\Microsoft\WindowsApps;;C:\Users\kacpe\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.3\bin;C:\Users\kacpe\.dotnet\tools;.]
+18-Jan-2026 00:35:11.852 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 00:35:11.875 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [459] milliseconds
+18-Jan-2026 00:35:11.928 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Jan-2026 00:35:11.929 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.113]
+18-Jan-2026 00:35:11.946 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 00:35:12.683 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 00:35:13.767 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 00:35:13.772 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:35:13.772 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:35:13.843 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [1,897] ms
+18-Jan-2026 00:35:13.844 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs]
+18-Jan-2026 00:35:13.876 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs] has finished in [32] ms
+18-Jan-2026 00:35:13.877 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples]
+18-Jan-2026 00:35:14.239 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples] has finished in [362] ms
+18-Jan-2026 00:35:14.241 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager]
+18-Jan-2026 00:35:14.283 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager] has finished in [43] ms
+18-Jan-2026 00:35:14.283 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager]
+18-Jan-2026 00:35:14.322 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager] has finished in [39] ms
+18-Jan-2026 00:35:14.323 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT]
+18-Jan-2026 00:35:14.347 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT] has finished in [24] ms
+18-Jan-2026 00:35:14.353 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 00:35:14.412 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2536] milliseconds
+18-Jan-2026 00:35:24.604 INFO [http-nio-8080-exec-1] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 00:42:45.134 INFO [http-nio-8080-exec-3] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 00:50:08.634 INFO [http-nio-8080-exec-8] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 00:50:08.654 INFO [http-nio-8080-exec-8] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 00:50:08.656 INFO [http-nio-8080-exec-8] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 00:50:08.683 INFO [http-nio-8080-exec-8] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 00:50:14.728 INFO [http-nio-8080-exec-6] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 00:50:16.072 INFO [http-nio-8080-exec-6] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 00:50:17.111 INFO [http-nio-8080-exec-6] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 00:50:17.112 INFO [http-nio-8080-exec-6] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:50:17.112 INFO [http-nio-8080-exec-6] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:50:17.116 INFO [http-nio-8080-exec-6] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,388] ms
+18-Jan-2026 00:50:47.051 INFO [http-nio-8080-exec-3] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 00:57:21.775 INFO [http-nio-8080-exec-11] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 00:57:21.780 INFO [http-nio-8080-exec-11] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 00:57:21.780 INFO [http-nio-8080-exec-11] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 00:57:21.799 INFO [http-nio-8080-exec-11] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 00:57:27.498 INFO [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 00:57:28.776 INFO [http-nio-8080-exec-12] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 00:57:29.855 INFO [http-nio-8080-exec-12] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 00:57:29.855 INFO [http-nio-8080-exec-12] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:57:29.856 INFO [http-nio-8080-exec-12] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 00:57:29.860 INFO [http-nio-8080-exec-12] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,361] ms
+18-Jan-2026 00:58:07.462 INFO [http-nio-8080-exec-17] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:00:52.287 INFO [http-nio-8080-exec-22] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 01:00:52.293 INFO [http-nio-8080-exec-22] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:00:52.293 INFO [http-nio-8080-exec-22] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:00:52.315 INFO [http-nio-8080-exec-22] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 01:00:57.665 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 01:00:58.917 INFO [http-nio-8080-exec-21] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 01:00:59.919 INFO [http-nio-8080-exec-21] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 01:00:59.919 INFO [http-nio-8080-exec-21] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:00:59.920 INFO [http-nio-8080-exec-21] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:00:59.923 INFO [http-nio-8080-exec-21] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,258] ms
+18-Jan-2026 01:01:08.043 INFO [http-nio-8080-exec-28] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:01:27.932 INFO [http-nio-8080-exec-26] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:03:54.653 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 01:03:54.657 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:03:54.658 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:03:54.678 INFO [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 01:03:59.887 INFO [http-nio-8080-exec-40] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 01:04:01.150 INFO [http-nio-8080-exec-40] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 01:04:02.145 INFO [http-nio-8080-exec-40] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 01:04:02.145 INFO [http-nio-8080-exec-40] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:04:02.145 INFO [http-nio-8080-exec-40] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:04:02.149 INFO [http-nio-8080-exec-40] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,263] ms
+18-Jan-2026 01:04:15.780 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 01:04:15.846 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Jan-2026 01:04:15.851 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 01:04:15.855 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:04:15.855 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:04:15.859 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 01:04:15.884 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 01:50:58.592 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.113
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 2 2025 19:51:24 UTC
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.113.0
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.10+11-LTS-240
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 01:50:58.597 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 01:50:58.605 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Jan-2026 01:50:58.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\conf\logging.properties
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 01:50:58.607 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\temp
+18-Jan-2026 01:50:58.621 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\Win64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\DevExpress\VCL\Library\RS28;C:\Program Files (x86)\DevExpress\VCL\Library\RS28\Win64;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2025a\bin;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\;C:\Users\kacpe\AppData\Local\Microsoft\WindowsApps;;C:\Users\kacpe\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.3\bin;C:\Users\kacpe\.dotnet\tools;.]
+18-Jan-2026 01:50:58.805 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 01:50:58.822 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [378] milliseconds
+18-Jan-2026 01:50:58.864 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Jan-2026 01:50:58.865 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.113]
+18-Jan-2026 01:50:58.892 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 01:50:59.600 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 01:51:00.705 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 01:51:00.709 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:51:00.710 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:51:00.769 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [1,875] ms
+18-Jan-2026 01:51:00.769 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs]
+18-Jan-2026 01:51:00.801 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs] has finished in [32] ms
+18-Jan-2026 01:51:00.801 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples]
+18-Jan-2026 01:51:01.134 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples] has finished in [333] ms
+18-Jan-2026 01:51:01.135 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager]
+18-Jan-2026 01:51:01.192 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager] has finished in [55] ms
+18-Jan-2026 01:51:01.193 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager]
+18-Jan-2026 01:51:01.243 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager] has finished in [51] ms
+18-Jan-2026 01:51:01.244 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT]
+18-Jan-2026 01:51:01.264 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT] has finished in [21] ms
+18-Jan-2026 01:51:01.268 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 01:51:01.319 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2497] milliseconds
+18-Jan-2026 01:51:12.361 INFO [http-nio-8080-exec-3] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 01:51:12.370 INFO [http-nio-8080-exec-3] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:51:12.371 INFO [http-nio-8080-exec-3] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:51:14.173 INFO [http-nio-8080-exec-5] org.apache.catalina.util.LifecycleBase.stop The stop() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/mockCoordinateService-1.0-SNAPSHOT]] after stop() had already been called. The second call will be ignored.
+18-Jan-2026 01:51:14.189 INFO [http-nio-8080-exec-5] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 01:51:22.311 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 01:51:23.704 INFO [http-nio-8080-exec-7] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 01:51:24.734 INFO [http-nio-8080-exec-7] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 01:51:24.735 INFO [http-nio-8080-exec-7] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:51:24.735 INFO [http-nio-8080-exec-7] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:51:24.740 INFO [http-nio-8080-exec-7] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,429] ms
+18-Jan-2026 01:52:35.749 INFO [http-nio-8080-exec-11] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:52:37.295 SEVERE [http-nio-8080-exec-11] com.sun.xml.ws.server.sei.TieHandler.createResponse WMS render failed
+	java.lang.RuntimeException: WMS render failed
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.generatePngForBounds(CoordinateServiceImpl.java:98)
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.sendCoordinates(CoordinateServiceImpl.java:45)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+		at com.sun.xml.ws.util.Trampoline.invoke(MethodUtil.java:52)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+		at com.sun.xml.ws.util.MethodUtil.invoke(MethodUtil.java:77)
+		at com.sun.xml.ws.api.server.MethodUtil.invoke(MethodUtil.java:34)
+		at com.sun.xml.ws.api.server.InstanceResolver$1.invoke(InstanceResolver.java:220)
+		at com.sun.xml.ws.server.InvokerTube$2.invoke(InvokerTube.java:119)
+		at com.sun.xml.ws.server.sei.SEIInvokerTube.processRequest(SEIInvokerTube.java:58)
+		at com.sun.xml.ws.api.pipe.Fiber.__doRun(Fiber.java:1105)
+		at com.sun.xml.ws.api.pipe.Fiber._doRun(Fiber.java:1019)
+		at com.sun.xml.ws.api.pipe.Fiber.doRun(Fiber.java:988)
+		at com.sun.xml.ws.api.pipe.Fiber.runSync(Fiber.java:846)
+		at com.sun.xml.ws.server.WSEndpointImpl$2.process(WSEndpointImpl.java:400)
+		at com.sun.xml.ws.transport.http.HttpAdapter$HttpToolkit.handle(HttpAdapter.java:842)
+		at com.sun.xml.ws.transport.http.HttpAdapter.handle(HttpAdapter.java:397)
+		at com.sun.xml.ws.transport.http.servlet.ServletAdapter.invokeAsync(ServletAdapter.java:195)
+		at com.sun.xml.ws.transport.http.servlet.WSServletDelegate.doGet(WSServletDelegate.java:131)
+		at com.sun.xml.ws.transport.http.servlet.WSServletDelegate.doPost(WSServletDelegate.java:167)
+		at com.sun.xml.ws.transport.http.servlet.WSServlet.doPost(WSServlet.java:51)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:643)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:939)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1831)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:842)
+	Caused by: java.net.UnknownHostException: your-geoserver-url
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:633)
+		at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+		at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+		at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:534)
+		at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:639)
+		at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+		at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+		at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+		at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+		at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.generatePngForBounds(CoordinateServiceImpl.java:87)
+		... 50 more
+18-Jan-2026 01:53:24.986 INFO [http-nio-8080-exec-12] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:53:26.267 SEVERE [http-nio-8080-exec-12] com.sun.xml.ws.server.sei.TieHandler.createResponse WMS render failed
+	java.lang.RuntimeException: WMS render failed
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.generatePngForBounds(CoordinateServiceImpl.java:98)
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.sendCoordinates(CoordinateServiceImpl.java:45)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+		at com.sun.xml.ws.util.Trampoline.invoke(MethodUtil.java:52)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+		at com.sun.xml.ws.util.MethodUtil.invoke(MethodUtil.java:77)
+		at com.sun.xml.ws.api.server.MethodUtil.invoke(MethodUtil.java:34)
+		at com.sun.xml.ws.api.server.InstanceResolver$1.invoke(InstanceResolver.java:220)
+		at com.sun.xml.ws.server.InvokerTube$2.invoke(InvokerTube.java:119)
+		at com.sun.xml.ws.server.sei.SEIInvokerTube.processRequest(SEIInvokerTube.java:58)
+		at com.sun.xml.ws.api.pipe.Fiber.__doRun(Fiber.java:1105)
+		at com.sun.xml.ws.api.pipe.Fiber._doRun(Fiber.java:1019)
+		at com.sun.xml.ws.api.pipe.Fiber.doRun(Fiber.java:988)
+		at com.sun.xml.ws.api.pipe.Fiber.runSync(Fiber.java:846)
+		at com.sun.xml.ws.server.WSEndpointImpl$2.process(WSEndpointImpl.java:400)
+		at com.sun.xml.ws.transport.http.HttpAdapter$HttpToolkit.handle(HttpAdapter.java:842)
+		at com.sun.xml.ws.transport.http.HttpAdapter.handle(HttpAdapter.java:397)
+		at com.sun.xml.ws.transport.http.servlet.ServletAdapter.invokeAsync(ServletAdapter.java:195)
+		at com.sun.xml.ws.transport.http.servlet.WSServletDelegate.doGet(WSServletDelegate.java:131)
+		at com.sun.xml.ws.transport.http.servlet.WSServletDelegate.doPost(WSServletDelegate.java:167)
+		at com.sun.xml.ws.transport.http.servlet.WSServlet.doPost(WSServlet.java:51)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:197)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:142)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:643)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:939)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1831)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:842)
+	Caused by: java.net.UnknownHostException: your-geoserver-url
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:633)
+		at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+		at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+		at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:534)
+		at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:639)
+		at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+		at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+		at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+		at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+		at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+		at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+		at org.example.mockcoordinateservice.CoordinateServiceImpl.generatePngForBounds(CoordinateServiceImpl.java:87)
+		... 50 more
+18-Jan-2026 01:57:34.760 INFO [http-nio-8080-exec-15] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 01:57:34.764 INFO [http-nio-8080-exec-15] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:57:34.765 INFO [http-nio-8080-exec-15] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 01:57:34.784 INFO [http-nio-8080-exec-15] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 01:57:42.407 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 01:57:43.659 INFO [http-nio-8080-exec-19] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 01:57:44.714 INFO [http-nio-8080-exec-19] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 01:57:44.715 INFO [http-nio-8080-exec-19] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:57:44.715 INFO [http-nio-8080-exec-19] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 01:57:44.720 INFO [http-nio-8080-exec-19] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,312] ms
+18-Jan-2026 01:58:52.201 INFO [http-nio-8080-exec-21] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:59:16.299 INFO [http-nio-8080-exec-23] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 01:59:34.246 INFO [http-nio-8080-exec-24] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:03:09.370 INFO [http-nio-8080-exec-26] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 02:03:09.375 INFO [http-nio-8080-exec-26] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:03:09.375 INFO [http-nio-8080-exec-26] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:03:09.393 INFO [http-nio-8080-exec-26] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 02:03:17.810 INFO [http-nio-8080-exec-30] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 02:03:19.041 INFO [http-nio-8080-exec-30] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 02:03:20.125 INFO [http-nio-8080-exec-30] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 02:03:20.126 INFO [http-nio-8080-exec-30] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:03:20.126 INFO [http-nio-8080-exec-30] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:03:20.136 INFO [http-nio-8080-exec-30] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,327] ms
+18-Jan-2026 02:03:38.104 INFO [http-nio-8080-exec-22] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:03:44.182 INFO [http-nio-8080-exec-28] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:04:07.242 INFO [http-nio-8080-exec-27] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:04:23.483 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:05:32.950 INFO [http-nio-8080-exec-33] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 02:05:32.954 INFO [http-nio-8080-exec-33] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:05:32.955 INFO [http-nio-8080-exec-33] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:05:32.978 INFO [http-nio-8080-exec-33] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 02:05:40.064 INFO [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 02:05:41.437 INFO [http-nio-8080-exec-31] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 02:05:42.296 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 02:05:42.296 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:05:42.297 INFO [http-nio-8080-exec-31] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:05:42.300 INFO [http-nio-8080-exec-31] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,236] ms
+18-Jan-2026 02:05:49.397 INFO [http-nio-8080-exec-40] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:16:01.161 INFO [http-nio-8080-exec-45] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 02:16:01.166 INFO [http-nio-8080-exec-45] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:16:01.166 INFO [http-nio-8080-exec-45] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:16:01.186 INFO [http-nio-8080-exec-45] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 02:16:06.685 INFO [http-nio-8080-exec-49] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 02:16:07.872 INFO [http-nio-8080-exec-49] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 02:16:08.785 INFO [http-nio-8080-exec-49] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 02:16:08.785 INFO [http-nio-8080-exec-49] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:16:08.785 INFO [http-nio-8080-exec-49] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:16:08.788 INFO [http-nio-8080-exec-49] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,103] ms
+18-Jan-2026 02:16:25.436 INFO [http-nio-8080-exec-41] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:16:44.445 INFO [http-nio-8080-exec-42] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:20:42.504 INFO [http-nio-8080-exec-54] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 02:20:42.510 INFO [http-nio-8080-exec-54] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:20:42.511 INFO [http-nio-8080-exec-54] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:20:42.531 INFO [http-nio-8080-exec-54] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/mockCoordinateService-1.0-SNAPSHOT]
+18-Jan-2026 02:20:48.796 INFO [http-nio-8080-exec-52] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 02:20:50.138 INFO [http-nio-8080-exec-52] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 02:20:51.098 INFO [http-nio-8080-exec-52] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 02:20:51.099 INFO [http-nio-8080-exec-52] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:20:51.099 INFO [http-nio-8080-exec-52] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:20:51.104 INFO [http-nio-8080-exec-52] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [2,307] ms
+18-Jan-2026 02:21:18.321 INFO [http-nio-8080-exec-55] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:26:31.924 INFO [http-nio-8080-exec-61] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:27:06.557 INFO [http-nio-8080-exec-63] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:27:28.478 INFO [http-nio-8080-exec-65] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:27:43.359 INFO [http-nio-8080-exec-66] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:28:23.398 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 02:28:23.470 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Jan-2026 02:28:23.508 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 02:28:23.524 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:28:23.525 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 02:28:23.536 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 02:28:23.567 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 02:35:00.028 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.113
+18-Jan-2026 02:35:00.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 2 2025 19:51:24 UTC
+18-Jan-2026 02:35:00.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.113.0
+18-Jan-2026 02:35:00.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+18-Jan-2026 02:35:00.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.10+11-LTS-240
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 02:35:00.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 02:35:00.042 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Jan-2026 02:35:00.042 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+18-Jan-2026 02:35:00.042 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+18-Jan-2026 02:35:00.042 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\conf\logging.properties
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Jan-2026 02:35:00.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 02:35:00.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\temp
+18-Jan-2026 02:35:00.059 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\Win64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\DevExpress\VCL\Library\RS28;C:\Program Files (x86)\DevExpress\VCL\Library\RS28\Win64;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2025a\bin;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\;C:\Users\kacpe\AppData\Local\Microsoft\WindowsApps;;C:\Users\kacpe\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.3\bin;C:\Users\kacpe\.dotnet\tools;.]
+18-Jan-2026 02:35:00.244 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 02:35:00.263 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [391] milliseconds
+18-Jan-2026 02:35:00.299 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Jan-2026 02:35:00.300 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.113]
+18-Jan-2026 02:35:00.316 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 02:35:01.079 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 02:35:02.115 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 02:35:02.119 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:35:02.119 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 02:35:02.185 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [1,868] ms
+18-Jan-2026 02:35:02.185 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs]
+18-Jan-2026 02:35:02.215 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs] has finished in [30] ms
+18-Jan-2026 02:35:02.216 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples]
+18-Jan-2026 02:35:02.538 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples] has finished in [321] ms
+18-Jan-2026 02:35:02.538 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager]
+18-Jan-2026 02:35:02.586 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager] has finished in [48] ms
+18-Jan-2026 02:35:02.586 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager]
+18-Jan-2026 02:35:02.634 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager] has finished in [48] ms
+18-Jan-2026 02:35:02.635 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT]
+18-Jan-2026 02:35:02.657 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT] has finished in [22] ms
+18-Jan-2026 02:35:02.662 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 02:35:02.718 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2454] milliseconds
+18-Jan-2026 02:45:00.066 INFO [http-nio-8080-exec-7] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:45:17.832 INFO [http-nio-8080-exec-5] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:45:32.982 INFO [http-nio-8080-exec-8] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:45:51.896 INFO [http-nio-8080-exec-10] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 02:58:58.534 INFO [http-nio-8080-exec-1] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 03:22:02.045 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 03:22:02.117 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Jan-2026 03:22:02.168 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 03:22:02.193 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 03:22:02.194 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 03:22:02.211 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 03:22:02.223 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:20:11.990 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.113
+18-Jan-2026 10:20:12.003 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 2 2025 19:51:24 UTC
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.113.0
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.10+11-LTS-240
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:20:12.004 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:20:12.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Jan-2026 10:20:12.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+18-Jan-2026 10:20:12.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+18-Jan-2026 10:20:12.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Jan-2026 10:20:12.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Jan-2026 10:20:12.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Jan-2026 10:20:12.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\conf\logging.properties
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+18-Jan-2026 10:20:12.021 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Jan-2026 10:20:12.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:20:12.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:20:12.023 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\temp
+18-Jan-2026 10:20:12.041 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\Win64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\DevExpress\VCL\Library\RS28;C:\Program Files (x86)\DevExpress\VCL\Library\RS28\Win64;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2025a\bin;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\;C:\Users\kacpe\AppData\Local\Microsoft\WindowsApps;;C:\Users\kacpe\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.3\bin;C:\Users\kacpe\.dotnet\tools;.]
+18-Jan-2026 10:20:12.302 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:20:12.341 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [592] milliseconds
+18-Jan-2026 10:20:12.399 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Jan-2026 10:20:12.399 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.113]
+18-Jan-2026 10:20:12.460 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 10:20:14.890 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 10:20:16.446 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 10:20:16.452 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 10:20:16.452 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 10:20:16.571 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [119] milliseconds.
+18-Jan-2026 10:20:16.606 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [4,146] ms
+18-Jan-2026 10:20:16.606 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs]
+18-Jan-2026 10:20:16.666 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs] has finished in [60] ms
+18-Jan-2026 10:20:16.666 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples]
+18-Jan-2026 10:20:17.242 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples] has finished in [576] ms
+18-Jan-2026 10:20:17.244 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager]
+18-Jan-2026 10:20:17.335 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager] has finished in [91] ms
+18-Jan-2026 10:20:17.335 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager]
+18-Jan-2026 10:20:17.408 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager] has finished in [73] ms
+18-Jan-2026 10:20:17.414 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT]
+18-Jan-2026 10:20:17.446 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT] has finished in [32] ms
+18-Jan-2026 10:20:17.446 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:20:17.530 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5189] milliseconds
+18-Jan-2026 10:26:20.410 INFO [http-nio-8080-exec-7] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 10:31:11.726 INFO [http-nio-8080-exec-9] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 10:31:36.387 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:31:36.681 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Jan-2026 10:31:36.753 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 10:31:36.782 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 10:31:36.783 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 10:31:36.793 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:31:36.807 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:32:01.524 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.113
+18-Jan-2026 10:32:01.530 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Dec 2 2025 19:51:24 UTC
+18-Jan-2026 10:32:01.530 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.113.0
+18-Jan-2026 10:32:01.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+18-Jan-2026 10:32:01.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+18-Jan-2026 10:32:01.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-Jan-2026 10:32:01.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-17
+18-Jan-2026 10:32:01.531 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.10+11-LTS-240
+18-Jan-2026 10:32:01.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+18-Jan-2026 10:32:01.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:32:01.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:32:01.545 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-Jan-2026 10:32:01.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+18-Jan-2026 10:32:01.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+18-Jan-2026 10:32:01.546 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-Jan-2026 10:32:01.547 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-Jan-2026 10:32:01.547 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-Jan-2026 10:32:01.547 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-Jan-2026 10:32:01.547 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\conf\logging.properties
+18-Jan-2026 10:32:01.548 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-Jan-2026 10:32:01.548 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-Jan-2026 10:32:01.548 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-Jan-2026 10:32:01.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+18-Jan-2026 10:32:01.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+18-Jan-2026 10:32:01.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:32:01.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113
+18-Jan-2026 10:32:01.549 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\temp
+18-Jan-2026 10:32:01.576 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-25.0.1.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\22.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\Win64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\DevExpress\VCL\Library\RS28;C:\Program Files (x86)\DevExpress\VCL\Library\RS28\Win64;C:\Program Files\TortoiseGit\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\PuTTY\;C:\Program Files\MATLAB\R2025a\bin;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\kacpe\AppData\Local\Programs\Python\Python313\;C:\Users\kacpe\AppData\Local\Microsoft\WindowsApps;;C:\Users\kacpe\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2025.3\bin;C:\Users\kacpe\.dotnet\tools;.]
+18-Jan-2026 10:32:01.901 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:32:01.943 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [734] milliseconds
+18-Jan-2026 10:32:02.031 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-Jan-2026 10:32:02.032 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.113]
+18-Jan-2026 10:32:02.064 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war]
+18-Jan-2026 10:32:03.424 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+18-Jan-2026 10:32:05.412 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.<init> WSSERVLET14: JAX-WS servlet initializing
+18-Jan-2026 10:32:05.418 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 10:32:05.419 INFO [main] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextInitialized WSSERVLET12: JAX-WS context listener initializing
+18-Jan-2026 10:32:05.511 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\mockCoordinateService-1.0-SNAPSHOT.war] has finished in [3,446] ms
+18-Jan-2026 10:32:05.512 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs]
+18-Jan-2026 10:32:05.562 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\docs] has finished in [49] ms
+18-Jan-2026 10:32:05.562 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples]
+18-Jan-2026 10:32:06.101 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\examples] has finished in [539] ms
+18-Jan-2026 10:32:06.102 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager]
+18-Jan-2026 10:32:06.189 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\host-manager] has finished in [87] ms
+18-Jan-2026 10:32:06.189 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager]
+18-Jan-2026 10:32:06.251 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\manager] has finished in [62] ms
+18-Jan-2026 10:32:06.252 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT]
+18-Jan-2026 10:32:06.287 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.113\apache-tomcat-9.0.113\webapps\ROOT] has finished in [35] ms
+18-Jan-2026 10:32:06.294 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:32:06.371 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4427] milliseconds
+18-Jan-2026 10:34:21.220 INFO [http-nio-8080-exec-5] com.sun.xml.ws.transport.http.HttpAdapter.fixQuotesAroundSoapAction Received WS-I BP non-conformant Unquoted SoapAction HTTP header: 
+18-Jan-2026 10:43:07.617 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:43:08.037 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-Jan-2026 10:43:08.081 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletDelegate.destroy WSSERVLET15: JAX-WS servlet destroyed
+18-Jan-2026 10:43:08.094 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 10:43:08.095 INFO [Thread-1] com.sun.xml.ws.transport.http.servlet.WSServletContextListener.contextDestroyed WSSERVLET13: JAX-WS context listener destroyed
+18-Jan-2026 10:43:08.108 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-Jan-2026 10:43:08.113 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
