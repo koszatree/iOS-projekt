@@ -1,0 +1,496 @@
+{
+  "info": {
+    "_postman_id": "187f9a10-09f1-4e16-9952-943a4285bfe0",
+    "name": "PNPIOS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16348571"
+  },
+  "item": [
+    {
+      "name": "Pogoda na tydzień do przodu",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:wea=\"http://weather.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <wea:getDailyAverageTemperatureWeek>\r\n            <latitude>54.35</latitude>\r\n            <longitude>18.65</longitude>\r\n        </wea:getDailyAverageTemperatureWeek>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/WeatherService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "WeatherService"
+          ]
+        },
+        "description": "Do Headers dopisano:\n\nContent-Type: text/xml; charset=utf-8  \nSOAPAction: \"\"\n\nBody -> XML\n\nURL dostanie wyższy numer w nowszych wersjach\n\nURL: [http://localhost:8080/platform-service-1.2-SNAPSHOT/WeatherService](http://localhost:8080/platform-service-1.1-SNAPSHOT/WeatherService)\n\nTarget namespace: [http://weather.platformservice.pnpios.pl/](http://weather.platformservice.pnpios.pl/)\n\nParametry zapytania getDailyAverageTemperatureWeek:\n\n54.35\n\n18.65"
+      },
+      "response": []
+    },
+    {
+      "name": "Pobierz Mapę",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:coo=\"http://coordinate.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <coo:getMapTile>\r\n            <minLon>18.4600</minLon>\r\n            <minLat>54.2800</minLat>\r\n            <maxLon>18.8200</maxLon>\r\n            <maxLat>54.4800</maxLat>\r\n            <width>1000</width>\r\n            <height>1000</height>\r\n        </coo:getMapTile>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/CoordinateService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "CoordinateService"
+          ]
+        },
+        "description": "Do Headers dopisano:\n\nContent-Type: text/xml; charset=utf-8  \nSOAPAction: \"\"\n\nBody -> XML\n\nURL dostanie wyższy numer w nowszych wersjach\n\nURL: [http://localhost:8080/platform-service-1.2-SNAPSHOT/WeatherService](http://localhost:8080/platform-service-1.1-SNAPSHOT/WeatherService)\n\nTarget namespace: [http://weather.platformservice.pnpios.pl/](http://weather.platformservice.pnpios.pl/)\n\nParametry zapytania getDailyAverageTemperatureWeek:\n\n54.35\n\n18.65"
+      },
+      "response": []
+    },
+    {
+      "name": "Pogoda na 16 dni do przodu",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:wea=\"http://weather.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <wea:getDailyAverageTemperatureMonth>\r\n            <latitude>54.35</latitude>\r\n            <longitude>18.65</longitude>\r\n        </wea:getDailyAverageTemperatureMonth>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/WeatherService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "WeatherService"
+          ]
+        },
+        "description": "Pogoda na 16 dni"
+      },
+      "response": []
+    },
+    {
+      "name": "Pogoda na dany dzień - rozkład godzinowy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:wea=\"http://weather.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <wea:getHourlyTemperatureForDay>\r\n            <latitude>54.35</latitude>\r\n            <longitude>18.65</longitude>\r\n            <date>2026-05-10</date>\r\n        </wea:getHourlyTemperatureForDay>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/WeatherService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "WeatherService"
+          ]
+        },
+        "description": "Pogoda na dany dzień - rozkład godzinowy"
+      },
+      "response": []
+    },
+    {
+      "name": "Szukanie stacji po nazwie",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:mus=\"http://music.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <mus:searchStationsByName>\r\n            <name>RMF FM</name>\r\n        </mus:searchStationsByName>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/MusicService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "MusicService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pobranie URL-a do odtwarzania",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:mus=\"http://music.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <mus:getStationStreamUrl>\r\n            <stationUuid>9617a958-0601-11e8-ae97-52543be04c81</stationUuid>\r\n        </mus:getStationStreamUrl>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/MusicService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "MusicService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Stacje w obrysie mapy, przykład dla okolic Gdańska",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:mus=\"http://music.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <mus:getStationsInMapBounds>\r\n            <minLat>49.0000</minLat>\r\n            <minLon>14.0000</minLon>\r\n            <maxLat>55.1000</maxLat>\r\n            <maxLon>24.2000</maxLon>\r\n            <limit>100</limit>\r\n        </mus:getStationsInMapBounds>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/MusicService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "MusicService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Uzyskaj wszystkie informacje odnośnie danego regionu",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:agg=\"http://aggregation.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <agg:getRegionOverview>\r\n            <minLat>54.2800</minLat>\r\n            <minLon>18.4600</minLon>\r\n            <maxLat>54.4800</maxLat>\r\n            <maxLon>18.8200</maxLon>\r\n            <mapWidth>1000</mapWidth>\r\n            <mapHeight>1000</mapHeight>\r\n            <stationLimit>100</stationLimit>\r\n        </agg:getRegionOverview>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/AggregationService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "AggregationService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pinguj Wszystkie",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:agg=\"http://aggregation.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <agg:pingAll/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/AggregationService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "AggregationService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pinguj Serwis Map",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:coo=\"http://coordinate.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <coo:ping/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/CoordinateService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "CoordinateService"
+          ]
+        },
+        "description": "Do Headers dopisano:\n\nContent-Type: text/xml; charset=utf-8  \nSOAPAction: \"\"\n\nBody -> XML\n\nURL dostanie wyższy numer w nowszych wersjach\n\nURL: [http://localhost:8080/platform-service-1.2-SNAPSHOT/WeatherService](http://localhost:8080/platform-service-1.1-SNAPSHOT/WeatherService)\n\nTarget namespace: [http://weather.platformservice.pnpios.pl/](http://weather.platformservice.pnpios.pl/)\n\nParametry zapytania getDailyAverageTemperatureWeek:\n\n54.35\n\n18.65"
+      },
+      "response": []
+    },
+    {
+      "name": "Pinguj Serwis Radia",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:mus=\"http://music.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <mus:ping/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/MusicService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "MusicService"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pinguj Serwis Pogody",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml; charset=utf-8",
+            "type": "text"
+          },
+          {
+            "key": "SOAPAction",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:wea=\"http://weather.platformservice.pnpios.pl/\">\r\n    <soapenv:Header/>\r\n    <soapenv:Body>\r\n        <wea:ping/>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+          "options": {
+            "raw": {
+              "language": "xml"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/platform-service-2.2-SNAPSHOT/WeatherService",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "platform-service-2.2-SNAPSHOT",
+            "WeatherService"
+          ]
+        },
+        "description": "Pogoda na dany dzień - rozkład godzinowy"
+      },
+      "response": []
+    }
+  ]
+}

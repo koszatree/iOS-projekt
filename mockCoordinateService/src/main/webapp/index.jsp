@@ -9,5 +9,8 @@
 </h1>
 <br/>
 <a href="CoordinateService">Serwis geomapy</a>
+<a href="MusicService">Serwis Muzyki</a>
+<a href="WeatherService">Serwis Pogody</a>
+<a href="AggregationService">Serwis Agregacji</a>
 </body>
 </html>

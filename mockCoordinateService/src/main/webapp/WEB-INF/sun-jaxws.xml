@@ -5,6 +5,18 @@
 
     <endpoint
             name="CoordinateService"
-            implementation="org.example.mockcoordinateservice.CoordinateServiceImpl"
+            implementation="pl.PnPIOS.coordinates.CoordinateServiceImpl"
             url-pattern="/CoordinateService"/>
+    <endpoint
+            name="MusicService"
+            implementation="pl.PnPIOS.music.MusicServiceImpl"
+            url-pattern="/MusicService"/>
+    <endpoint
+            name="WeatherService"
+            implementation="pl.PnPIOS.weather.WeatherServiceImpl"
+            url-pattern="/WeatherService"/>
+    <endpoint
+            name="AggregationService"
+            implementation="pl.PnPIOS.aggregation.AggregationServiceImpl"
+            url-pattern="/AggregationService"/>
 </endpoints>

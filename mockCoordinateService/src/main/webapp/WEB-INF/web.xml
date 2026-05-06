@@ -17,6 +17,9 @@
     <servlet-mapping>
         <servlet-name>ws</servlet-name>
         <url-pattern>/CoordinateService</url-pattern>
+        <url-pattern>/MusicService</url-pattern>
+        <url-pattern>/WeatherService</url-pattern>
+        <url-pattern>/AggregationService</url-pattern>
     </servlet-mapping>
 
 </web-app>
