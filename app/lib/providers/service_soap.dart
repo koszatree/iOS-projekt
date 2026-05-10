@@ -33,8 +33,15 @@ class MapSoapService {
     }
 
     final doc = XmlDocument.parse(utf8.decode(response.bodyBytes));
-    print('Odpowiedź getCities: ${doc.toXmlString(pretty: true)}');
     return doc.findAllElements('city').map(City.fromXml).toList();
+  }
+
+  static Future<City> getCityByName(String name) async {
+    final cities = await getCities();
+    return cities.firstWhere(
+      (c) => c.name.toLowerCase() == name.toLowerCase(),
+      orElse: () => throw Exception('Miasto "$name" nie znalezione'),
+    );
   }
 
   /// Pobiera kafelek mapy dla wybranego miasta, zwraca bajty obrazu.
@@ -73,17 +80,14 @@ class MapSoapService {
       return response.bodyBytes;
     }
 
-    // Odpowiedź SOAP z base64 w tagu <return>, <mapTile> lub <map>
+    // Odpowiedź SOAP – base64 w tagu <imageBase64>
     final doc = XmlDocument.parse(utf8.decode(response.bodyBytes));
-    final returnEl =
-        doc.findAllElements('return').firstOrNull ??
-        doc.findAllElements('mapTile').firstOrNull ??
-        doc.findAllElements('map').firstOrNull;
+    final imageEl = doc.findAllElements('imageBase64').firstOrNull;
 
-    if (returnEl != null && returnEl.innerText.trim().isNotEmpty) {
-      return base64Decode(returnEl.innerText.trim());
+    if (imageEl != null && imageEl.innerText.trim().isNotEmpty) {
+      return base64Decode(imageEl.innerText.trim());
     }
 
-    throw Exception('Nieznany format odpowiedzi getMapTile');
+    throw Exception('Nie znaleziono tagu <imageBase64> w odpowiedzi serwera');
   }
 }

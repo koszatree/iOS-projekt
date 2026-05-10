@@ -1,12 +1,21 @@
-import 'package:flutter/material.dart';
 import 'dart:typed_data';
+import 'package:flutter/material.dart';
 
-import 'package:app/models/city.dart';
-import 'package:app/providers/service_soap.dart';
+import 'models/city.dart';
+import 'providers/service_soap.dart';
+
+import 'screens/server_status.dart';
+import 'screens/radios_stations.dart';
+import 'screens/authors.dart';
+import 'screens/weather.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Aplikacja
+// ─────────────────────────────────────────────────────────────────────────────
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PNPiOS Map App',
+      title: 'Mapa App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4CAF50)),
@@ -39,6 +48,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen>
     with SingleTickerProviderStateMixin {
+  // Animacja menu
   bool _menuOpen = false;
   late AnimationController _animationController;
   late Animation<double> _menuAnimation;
@@ -55,8 +65,13 @@ class _MapScreenState extends State<MapScreen>
   bool _loadingMap = false;
   String? _errorMessage;
 
-  // Szerokość prawej kolumny (zoom + lupa), zawsze widoczna
   static const double _rightColumnWidth = 60.0;
+
+  final TransformationController _mapController = TransformationController();
+  double _currentScale = 1.0;
+  static const double _minScale = 1.0;
+  static const double _maxScale = 4.0;
+  static const double _zoomStep = 1.25;
 
   @override
   void initState() {
@@ -69,21 +84,29 @@ class _MapScreenState extends State<MapScreen>
       parent: _animationController,
       curve: Curves.easeInOutCubic,
     );
+    _searchController.addListener(_onSearchChanged);
+    _fetchCities();
+    _selectCityByName('Gdańsk-local');
   }
 
   @override
   void dispose() {
     _animationController.dispose();
+    _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
+    _mapController.dispose();
     super.dispose();
   }
+
+  // ── Sterowanie menu ───────────────────────────────────────────────────────
 
   void _toggleMenu() {
     setState(() => _menuOpen = !_menuOpen);
     _menuOpen ? _animationController.forward() : _animationController.reverse();
   }
 
-  // Pobieranie listy miast (przy starcie aplikacji)
+  // ── Pobieranie listy miast ────────────────────────────────────────────────
+
   Future<void> _fetchCities() async {
     setState(() => _loadingCities = true);
     try {
@@ -100,7 +123,8 @@ class _MapScreenState extends State<MapScreen>
     }
   }
 
-  // Filtorowanie odpowiedzi
+  // ── Filtrowanie podpowiedzi ───────────────────────────────────────────────
+
   void _onSearchChanged() {
     final query = _searchController.text.trim().toLowerCase();
     if (query.isEmpty) {
@@ -114,7 +138,31 @@ class _MapScreenState extends State<MapScreen>
     });
   }
 
-  // Wybór miasta i pobranie mapy
+  // ── Sterowanie zoomem mapy ────────────────────────────────────────────────
+
+  void _resetMapTransform() {
+    _currentScale = 1.0;
+    _mapController.value = Matrix4.identity();
+  }
+
+  void _zoomIn() {
+    _setZoom(_currentScale * _zoomStep);
+  }
+
+  void _zoomOut() {
+    _setZoom(_currentScale / _zoomStep);
+  }
+
+  void _setZoom(double targetScale) {
+    final scale = targetScale.clamp(_minScale, _maxScale);
+    setState(() => _currentScale = scale);
+
+    final matrix = Matrix4.identity()..scale(scale);
+    _mapController.value = matrix;
+  }
+
+  // ── Wybór miasta i pobranie mapy ──────────────────────────────────────────
+
   Future<void> _selectCity(City city) async {
     FocusScope.of(context).unfocus();
     setState(() {
@@ -125,6 +173,8 @@ class _MapScreenState extends State<MapScreen>
       _mapImageBytes = null;
       _errorMessage = null;
     });
+    _resetMapTransform();
+
     try {
       final bytes = await MapSoapService.getMapTile(city);
       setState(() {
@@ -139,7 +189,19 @@ class _MapScreenState extends State<MapScreen>
     }
   }
 
-  // Wyszukanie po naciśnięlu lupy lub Enter
+  // Wybór miasta po nazwie (np. z podpowiedzi) ─────────────────────────────────
+
+  Future<void> _selectCityByName(String name) async {
+    try {
+      final city = await MapSoapService.getCityByName(name);
+      _selectCity(city);
+    } catch (e) {
+      setState(() => _errorMessage = 'Błąd: $e');
+    }
+  }
+
+  // ── Wyszukiwanie po naciśnięciu lupy lub Enter ────────────────────────────
+
   void _onSearchSubmit() {
     final query = _searchController.text.trim().toLowerCase();
     if (query.isEmpty) return;
@@ -160,45 +222,53 @@ class _MapScreenState extends State<MapScreen>
     _selectCity(match);
   }
 
+  // ── Build ─────────────────────────────────────────────────────────────────
+
   @override
   Widget build(BuildContext context) {
-    // Odczytujemy wysokość status bara przez MediaQuery
     final topPadding = MediaQuery.of(context).padding.top;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // ── Tło (miejsce na mapę) ─────────────────────────────────────────
+          // ── Tło: mapa lub placeholder ───────────────────────────────────
           Positioned.fill(
             child: _MapBackground(
               imageBytes: _mapImageBytes,
               isLoading: _loadingMap,
+              controller: _mapController,
+              minScale: _minScale,
+              maxScale: _maxScale,
+              child: _mapImageBytes != null
+                  ? Image.memory(
+                      _mapImageBytes!,
+                      fit: BoxFit.cover,
+                      gaplessPlayback: true,
+                    )
+                  : const ColoredBox(color: Colors.white),
             ),
           ),
 
-          // ── Panel menu – wysuwa się od góry, nie zakrywa prawej kolumny ───
-          // Zaczyna się od dołu status bara (topPadding), nie zakrywa lupy
+          // ── Panel menu ──────────────────────────────────────────────────
           Positioned(
             top: topPadding,
             left: 0,
             right: _rightColumnWidth,
             child: AnimatedBuilder(
               animation: _menuAnimation,
-              builder: (context, child) {
-                return ClipRect(
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    heightFactor: _menuAnimation.value,
-                    child: child,
-                  ),
-                );
-              },
+              builder: (context, child) => ClipRect(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  heightFactor: _menuAnimation.value,
+                  child: child,
+                ),
+              ),
               child: _DropMenu(onClose: _toggleMenu),
             ),
           ),
 
-          // Podpowiedzi wyszukiwania
+          // ── Podpowiedzi wyszukiwania ─────────────────────────────────────
           if (_suggestions.isNotEmpty)
             Positioned(
               top: topPadding + 64,
@@ -210,44 +280,32 @@ class _MapScreenState extends State<MapScreen>
               ),
             ),
 
-          // ── Lupa – stała pozycja, prawy górny róg ────────────────────────
+          // ── Lupa – zawsze widoczna, prawy górny róg ───────────────────────
           Positioned(
             top: topPadding + 12,
             right: 8,
             child: _IconCircleButton(
               icon: Icons.search,
-              onPressed: () {
-                // TODO: wyszukaj
-              },
+              onPressed: _onSearchSubmit,
               tooltip: 'Wyszukaj',
             ),
           ),
 
-          // ── Przyciski zoom – stała pozycja, prawa strona ─────────────────
+          // ── Zoom – zawsze widoczny, prawa strona ──────────────────────────
           Positioned(
             top: topPadding + 80,
             right: 8,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                _ZoomButton(
-                  icon: Icons.add,
-                  onPressed: () {
-                    // TODO: przybliż mapę
-                  },
-                ),
+                _ZoomButton(icon: Icons.add, onPressed: _zoomIn),
                 const SizedBox(height: 8),
-                _ZoomButton(
-                  icon: Icons.remove,
-                  onPressed: () {
-                    // TODO: oddal mapę
-                  },
-                ),
+                _ZoomButton(icon: Icons.remove, onPressed: _zoomOut),
               ],
             ),
           ),
 
-          // ── Hamburger – stały, lewy górny róg ────────────────────────────
+          // ── Hamburger – zawsze widoczny, lewy górny róg ───────────────────
           Positioned(
             top: topPadding + 10,
             left: 8,
@@ -272,6 +330,8 @@ class _MapScreenState extends State<MapScreen>
               ),
             ),
           ),
+
+          // ── Komunikat błędu ───────────────────────────────────────────────
           if (_errorMessage != null)
             Positioned(
               bottom: 40,
@@ -293,10 +353,21 @@ class _MapScreenState extends State<MapScreen>
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _MapBackground extends StatelessWidget {
-  const _MapBackground({required this.imageBytes, required this.isLoading});
+  const _MapBackground({
+    required this.imageBytes,
+    required this.isLoading,
+    required this.controller,
+    required this.minScale,
+    required this.maxScale,
+    required this.child,
+  });
 
   final Uint8List? imageBytes;
   final bool isLoading;
+  final TransformationController controller;
+  final double minScale;
+  final double maxScale;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -319,10 +390,19 @@ class _MapBackground extends StatelessWidget {
       );
     }
     if (imageBytes != null) {
-      return Image.memory(
-        imageBytes!,
-        fit: BoxFit.cover,
-        gaplessPlayback: true,
+      return InteractiveViewer(
+        transformationController: controller,
+        panEnabled: true,
+        scaleEnabled: true,
+        minScale: minScale,
+        maxScale: maxScale,
+        boundaryMargin: const EdgeInsets.all(80),
+        constrained: false,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: child,
+        ),
       );
     }
     return const ColoredBox(color: Colors.white);
@@ -330,7 +410,7 @@ class _MapBackground extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Pasek wyszukiwania
+// Widget: pasek wyszukiwania
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _SearchBar extends StatelessWidget {
@@ -495,7 +575,7 @@ class _ErrorBanner extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Rozwijany panel menu
+// Widget: panel menu
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _DropMenu extends StatelessWidget {
@@ -506,7 +586,7 @@ class _DropMenu extends StatelessWidget {
   static const List<_MenuItemData> _items = [
     _MenuItemData(icon: Icons.podcasts, label: 'Lista Stacji radiowych'),
     _MenuItemData(icon: Icons.wb_cloudy_outlined, label: 'Pogoda w miastach'),
-    _MenuItemData(icon: Icons.wifi, label: 'Status połączenia z serwer'),
+    _MenuItemData(icon: Icons.wifi, label: 'Status połączenia z serwerem'),
     _MenuItemData(icon: Icons.group, label: 'Wykonawcy'),
   ];
 
@@ -524,39 +604,65 @@ class _DropMenu extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // ── Nagłówek ───────────────────────────────────────────────────────
-          SizedBox(
+          const SizedBox(
             height: 56,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                const Text(
-                  'Menu',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1A1A1A),
-                    letterSpacing: 0.2,
-                  ),
+            child: Center(
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF1A1A1A),
                 ),
-              ],
+              ),
             ),
           ),
           const Divider(height: 1, thickness: 1),
-
-          // ── Pozycje menu ───────────────────────────────────────────────────
           for (int i = 0; i < _items.length; i++) ...[
             _MenuRow(
               icon: _items[i].icon,
               label: _items[i].label,
               onTap: () {
-                // TODO: nawigacja do ${_items[i].label}
+                onClose(); // Zamknij menu po kliknięciu
+                switch (_items[i].label) {
+                  case 'Lista Stacji radiowych':
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RadioStationsScreen(),
+                      ),
+                    );
+                    break;
+                  case 'Pogoda w miastach':
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WeatherScreen(),
+                      ),
+                    );
+                    break;
+                  case 'Status połączenia z serwerem':
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ServerStatusScreen(),
+                      ),
+                    );
+                    break;
+                  case 'Wykonawcy':
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AuthorsScreen(),
+                      ),
+                    );
+                    break;
+                }
               },
             ),
             if (i < _items.length - 1)
               const Divider(height: 1, thickness: 1, indent: 20, endIndent: 20),
           ],
-
           const SizedBox(height: 6),
         ],
       ),
@@ -610,7 +716,7 @@ class _MenuRow extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Przycisk hamburgera
+// Widget: przycisk hamburgera
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _HamburgerButton extends StatelessWidget {
@@ -645,7 +751,7 @@ class _HamburgerButton extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Okrągły przycisk ikony (lupa)
+// Widget: okrągły przycisk ikony (np. lupa)
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _IconCircleButton extends StatelessWidget {
@@ -683,7 +789,7 @@ class _IconCircleButton extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Przycisk zoom
+// Widget: przycisk zoom
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _ZoomButton extends StatelessWidget {
