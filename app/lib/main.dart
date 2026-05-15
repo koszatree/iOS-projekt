@@ -65,6 +65,9 @@ class _MapScreenState extends State<MapScreen>
   bool _loadingMap = false;
   String? _errorMessage;
 
+  final FocusNode _searchFocusNode = FocusNode();
+  bool _showSuggestions = false;
+
   static const double _rightColumnWidth = 60.0;
 
   final TransformationController _mapController = TransformationController();
@@ -85,6 +88,11 @@ class _MapScreenState extends State<MapScreen>
       curve: Curves.easeInOutCubic,
     );
     _searchController.addListener(_onSearchChanged);
+    _searchFocusNode.addListener(() {
+      if (!_searchFocusNode.hasFocus && !_showSuggestions) {
+        setState(() => _suggestions = []);
+      }
+    });
     _fetchCities();
     _selectCityByName('Gdańsk-local');
   }
@@ -95,6 +103,7 @@ class _MapScreenState extends State<MapScreen>
     _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     _mapController.dispose();
+    _searchFocusNode.dispose();
     super.dispose();
   }
 
@@ -103,6 +112,25 @@ class _MapScreenState extends State<MapScreen>
   void _toggleMenu() {
     setState(() => _menuOpen = !_menuOpen);
     _menuOpen ? _animationController.forward() : _animationController.reverse();
+  }
+
+  // ── Logika sugestii w wyszukiwarce ─────────────────────────────────────────
+
+  void _openSuggestions() {
+    final query = _searchController.text.trim().toLowerCase();
+    setState(() {
+      _showSuggestions = true;
+      _suggestions = query.isEmpty
+          ? _cities.take(8).toList()
+          : _cities.where((c) => c.name.toLowerCase().contains(query)).toList();
+    });
+  }
+
+  void _hideSuggestions() {
+    setState(() {
+      _showSuggestions = false;
+      _suggestions = [];
+    });
   }
 
   // ── Pobieranie listy miast ────────────────────────────────────────────────
@@ -164,24 +192,31 @@ class _MapScreenState extends State<MapScreen>
   // ── Wybór miasta i pobranie mapy ──────────────────────────────────────────
 
   Future<void> _selectCity(City city) async {
-    FocusScope.of(context).unfocus();
+    _searchController.value = TextEditingValue(
+      text: city.name,
+      selection: TextSelection.collapsed(offset: city.name.length),
+    );
+
+    _hideSuggestions();
+
     setState(() {
       _selectedCity = city;
-      _suggestions = [];
-      _searchController.text = city.name;
       _loadingMap = true;
       _mapImageBytes = null;
       _errorMessage = null;
     });
+
     _resetMapTransform();
 
     try {
       final bytes = await MapSoapService.getMapTile(city);
+      if (!mounted) return;
       setState(() {
         _mapImageBytes = bytes;
         _loadingMap = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _loadingMap = false;
         _errorMessage = 'Błąd pobierania mapy: $e';
@@ -204,13 +239,18 @@ class _MapScreenState extends State<MapScreen>
 
   void _onSearchSubmit() {
     final query = _searchController.text.trim().toLowerCase();
-    if (query.isEmpty) return;
+    if (query.isEmpty) {
+      _hideSuggestions();
+      return;
+    }
 
     City? match;
     try {
       match = _cities.firstWhere((c) => c.name.toLowerCase() == query);
     } catch (_) {}
     match ??= _suggestions.isNotEmpty ? _suggestions.first : null;
+
+    _hideSuggestions();
 
     if (match == null) {
       setState(
@@ -269,7 +309,7 @@ class _MapScreenState extends State<MapScreen>
           ),
 
           // ── Podpowiedzi wyszukiwania ─────────────────────────────────────
-          if (_suggestions.isNotEmpty)
+          if (_showSuggestions && _suggestions.isNotEmpty)
             Positioned(
               top: topPadding + 64,
               left: 62,
@@ -325,7 +365,9 @@ class _MapScreenState extends State<MapScreen>
               ),
               child: _SearchBar(
                 controller: _searchController,
+                focusNode: _searchFocusNode,
                 onSubmitted: (_) => _onSearchSubmit(),
+                onTap: () => _openSuggestions(),
                 isLoading: _loadingCities,
               ),
             ),
@@ -416,12 +458,16 @@ class _MapBackground extends StatelessWidget {
 class _SearchBar extends StatelessWidget {
   const _SearchBar({
     required this.controller,
+    required this.focusNode,
     this.onSubmitted,
+    this.onTap,
     this.isLoading = false,
   });
 
   final TextEditingController controller;
+  final FocusNode focusNode;
   final ValueChanged<String>? onSubmitted;
+  final VoidCallback? onTap;
   final bool isLoading;
 
   @override
@@ -447,6 +493,7 @@ class _SearchBar extends StatelessWidget {
               textAlignVertical: TextAlignVertical.center,
               style: const TextStyle(fontSize: 15),
               textInputAction: TextInputAction.search,
+              onTap: onTap,
               onSubmitted: onSubmitted,
               decoration: InputDecoration(
                 hintText: isLoading ? 'Ładowanie miast…' : 'Wyszukaj miasto…',

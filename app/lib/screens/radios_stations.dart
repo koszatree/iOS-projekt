@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 import 'package:app/models/city.dart';
 import 'package:app/models/radio_station.dart';
@@ -25,15 +26,16 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
   bool _loadingStations = false;
   String? _errorMessage;
 
+  // Odtwarzacz
+  final AudioPlayer _player = AudioPlayer();
+  String? _playingUuid; // UUID aktualnie odtwarzanej stacji
+  String? _loadingUuid; // UUID stacji ładującej strumień
+  String? _playerError; // Komunikat błędu odtwarzacza
+
   @override
   void initState() {
     super.initState();
     _searchController.addListener(_onSearchChanged);
-    _searchFocusNode.addListener(() {
-      if (!_searchFocusNode.hasFocus) {
-        setState(() => _suggestions = []);
-      }
-    });
     _fetchCities();
   }
 
@@ -42,6 +44,7 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
     _searchController.removeListener(_onSearchChanged);
     _searchController.dispose();
     _searchFocusNode.dispose();
+    _player.dispose();
     super.dispose();
   }
 
@@ -71,7 +74,6 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       setState(() => _suggestions = []);
       return;
     }
-
     setState(() {
       _suggestions = _cities
           .where((c) => c.name.toLowerCase().contains(query))
@@ -79,19 +81,24 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
     });
   }
 
-  // ── Wybór miasta i pobranie stacji ────────────────────────────────────────
+  void _hideSuggestions() => setState(() => _suggestions = []);
 
-  // ── Wyszukiwanie po tekście (Enter lub przycisk) ─────────────────────────
+  // ── Wyszukiwanie po tekście (Enter lub przycisk) ──────────────────────────
 
   void _onSearchSubmit() {
     final query = _searchController.text.trim().toLowerCase();
-    if (query.isEmpty) return;
+    if (query.isEmpty) {
+      _hideSuggestions();
+      return;
+    }
 
     City? match;
     try {
       match = _cities.firstWhere((c) => c.name.toLowerCase() == query);
     } catch (_) {}
     match ??= _suggestions.isNotEmpty ? _suggestions.first : null;
+
+    _hideSuggestions();
 
     if (match == null) {
       setState(
@@ -103,15 +110,21 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
     _selectCity(match);
   }
 
+  // ── Wybór miasta i pobranie stacji ────────────────────────────────────────
+
   Future<void> _selectCity(City city) async {
     _searchController.value = TextEditingValue(
       text: city.name,
       selection: TextSelection.collapsed(offset: city.name.length),
     );
+    _hideSuggestions();
+    _searchFocusNode.unfocus();
+
+    // Zatrzymaj odtwarzanie przy zmianie miasta
+    await _stopPlayback();
 
     setState(() {
       _selectedCity = city;
-      _suggestions = [];
       _loadingStations = true;
       _stations = [];
       _errorMessage = null;
@@ -133,6 +146,50 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
     }
   }
 
+  // ── Odtwarzanie ───────────────────────────────────────────────────────────
+
+  Future<void> _togglePlayback(RadioStation station) async {
+    if (_playingUuid == station.stationUuid) {
+      await _stopPlayback();
+      return;
+    }
+    await _stopPlayback();
+    setState(() {
+      _loadingUuid = station.stationUuid;
+      _playerError = null;
+    });
+
+    try {
+      final streamInfo = await ServiceRadio.getStationStreamUrl(
+        station.stationUuid,
+      );
+      await _player.setUrl(streamInfo.streamUrl);
+      await _player.play();
+      if (!mounted) return;
+      setState(() {
+        _playingUuid = station.stationUuid;
+        _loadingUuid = null;
+      });
+    } catch (e) {
+      debugPrint('RADIO ERROR: $e'); // ← dodaj to
+      if (!mounted) return;
+      setState(() {
+        _loadingUuid = null;
+        _playerError = 'Błąd odtwarzania: $e';
+      });
+    }
+  }
+
+  Future<void> _stopPlayback() async {
+    await _player.stop();
+    if (mounted) {
+      setState(() {
+        _playingUuid = null;
+        _loadingUuid = null;
+      });
+    }
+  }
+
   // ─────────────────────────────────────────────────────────────────────────
 
   @override
@@ -147,7 +204,7 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       ),
       body: Column(
         children: [
-          // ── Pasek wyszukiwania + podpowiedzi ────────────────────────────
+          // ── Pasek wyszukiwania + podpowiedzi ──────────────────────────
           _SearchSection(
             controller: _searchController,
             focusNode: _searchFocusNode,
@@ -157,15 +214,61 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
             onSubmit: _onSearchSubmit,
           ),
 
-          // ── Zawartość ────────────────────────────────────────────────────
+          // ── Baner aktualnie odtwarzanej stacji ─────────────────────────
+          if (_playingUuid != null) _buildNowPlayingBanner(),
+
+          // ── Komunikat błędu odtwarzacza ────────────────────────────────
+          if (_playerError != null)
+            _ErrorBanner(
+              message: _playerError!,
+              onDismiss: () => setState(() => _playerError = null),
+            ),
+
+          // ── Zawartość ──────────────────────────────────────────────────
           Expanded(child: _buildContent()),
         ],
       ),
     );
   }
 
+  Widget _buildNowPlayingBanner() {
+    final station = _stations
+        .where((s) => s.stationUuid == _playingUuid)
+        .firstOrNull;
+    final name = station?.name ?? '';
+
+    return Container(
+      color: const Color(0xFF388E3C),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      child: Row(
+        children: [
+          const Icon(Icons.graphic_eq, color: Colors.white, size: 20),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              'Odtwarzanie: $name',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          GestureDetector(
+            onTap: _stopPlayback,
+            child: const Icon(
+              Icons.stop_circle_outlined,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildContent() {
-    // Ładowanie stacji
     if (_loadingStations) {
       return Center(
         child: Column(
@@ -182,7 +285,6 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       );
     }
 
-    // Błąd
     if (_errorMessage != null) {
       return Center(
         child: Padding(
@@ -218,7 +320,6 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       );
     }
 
-    // Placeholder – brak wybranego miasta
     if (_selectedCity == null) {
       return const Center(
         child: Padding(
@@ -239,7 +340,6 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       );
     }
 
-    // Brak stacji w wybranym mieście
     if (_stations.isEmpty) {
       return Center(
         child: Column(
@@ -261,36 +361,28 @@ class _RadioStationsScreenState extends State<RadioStationsScreen> {
       );
     }
 
-    // Lista stacji
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-          child: Text(
-            '${_stations.length} stacji w „${_selectedCity!.name}"',
-            style: const TextStyle(
-              fontSize: 13,
-              color: Colors.black45,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        Expanded(
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            itemCount: _stations.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 8),
-            itemBuilder: (context, i) => _StationCard(station: _stations[i]),
-          ),
-        ),
-      ],
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      itemCount: _stations.length,
+      separatorBuilder: (_, __) => const SizedBox(height: 8),
+      itemBuilder: (context, i) {
+        final station = _stations[i];
+        final isPlaying = _playingUuid == station.stationUuid;
+        final isLoading = _loadingUuid == station.stationUuid;
+
+        return _StationCard(
+          station: station,
+          isPlaying: isPlaying,
+          isLoading: isLoading,
+          onPlayTap: () => _togglePlayback(station),
+        );
+      },
     );
   }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Widget: sekcja wyszukiwania z podpowiedziami
+// Widget: sekcja wyszukiwania
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _SearchSection extends StatelessWidget {
@@ -326,8 +418,8 @@ class _SearchSection extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.15),
-                    blurRadius: 6,
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
                 ],
@@ -342,20 +434,22 @@ class _SearchSection extends StatelessWidget {
                       style: const TextStyle(fontSize: 15),
                       textInputAction: TextInputAction.search,
                       onSubmitted: (_) => onSubmit(),
-                      decoration: const InputDecoration(
-                        hintText: 'Wyszukaj miasto…',
-                        hintStyle: TextStyle(
+                      decoration: InputDecoration(
+                        hintText: isLoading
+                            ? 'Ładowanie miast…'
+                            : 'Wyszukaj miasto…',
+                        hintStyle: const TextStyle(
                           color: Colors.black45,
                           fontSize: 15,
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.location_city,
                           color: Color(0xFF4CAF50),
                           size: 20,
                         ),
                         border: InputBorder.none,
                         isDense: true,
-                        contentPadding: EdgeInsets.symmetric(vertical: 0),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 0),
                       ),
                     ),
                   ),
@@ -371,6 +465,7 @@ class _SearchSection extends StatelessWidget {
                         ),
                       ),
                     ),
+                  // Przycisk wyszukiwania
                   Material(
                     color: const Color(0xFF388E3C),
                     borderRadius: const BorderRadius.horizontal(
@@ -396,6 +491,8 @@ class _SearchSection extends StatelessWidget {
               ),
             ),
           ),
+
+          // Podpowiedzi
           if (suggestions.isNotEmpty)
             Material(
               elevation: 6,
@@ -421,8 +518,8 @@ class _SearchSection extends StatelessWidget {
                         child: Row(
                           children: [
                             const Icon(
-                              Icons.location_city,
-                              size: 18,
+                              Icons.location_on,
+                              size: 16,
                               color: Color(0xFF4CAF50),
                             ),
                             const SizedBox(width: 10),
@@ -452,9 +549,17 @@ class _SearchSection extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _StationCard extends StatelessWidget {
-  const _StationCard({required this.station});
+  const _StationCard({
+    required this.station,
+    required this.isPlaying,
+    required this.isLoading,
+    required this.onPlayTap,
+  });
 
   final RadioStation station;
+  final bool isPlaying;
+  final bool isLoading;
+  final VoidCallback onPlayTap;
 
   @override
   Widget build(BuildContext context) {
@@ -463,16 +568,23 @@ class _StationCard extends StatelessWidget {
         : const Color(0xFFD32F2F);
 
     return Card(
-      elevation: 2,
-      shadowColor: Colors.black12,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: isPlaying ? 4 : 2,
+      shadowColor: isPlaying
+          ? const Color(0xFF4CAF50).withOpacity(0.4)
+          : Colors.black12,
+      color: isPlaying ? const Color(0xFFE8F5E9) : Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: isPlaying
+            ? const BorderSide(color: Color(0xFF4CAF50), width: 1.5)
+            : BorderSide.none,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(14),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // ── Ikona / favicon ─────────────────────────────────────────
+            // ── Awatar ──────────────────────────────────────────────────
             _StationAvatar(
               faviconUrl: station.favicon,
               isOk: station.lastCheckOk,
@@ -484,19 +596,18 @@ class _StationCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Nazwa
                   Text(
                     station.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: Color(0xFF212121),
+                      color: isPlaying
+                          ? const Color(0xFF2E7D32)
+                          : const Color(0xFF212121),
                     ),
                   ),
-                  const SizedBox(height: 4),
-
-                  // Kraj
-                  if (station.country.isNotEmpty)
+                  if (station.country.isNotEmpty) ...[
+                    const SizedBox(height: 2),
                     Text(
                       station.country,
                       style: const TextStyle(
@@ -504,10 +615,8 @@ class _StationCard extends StatelessWidget {
                         color: Colors.black45,
                       ),
                     ),
-
+                  ],
                   const SizedBox(height: 6),
-
-                  // Tagi: kodek, bitrate, HLS
                   Wrap(
                     spacing: 6,
                     runSpacing: 4,
@@ -523,11 +632,27 @@ class _StationCard extends StatelessWidget {
               ),
             ),
 
-            // ── Status ──────────────────────────────────────────────────
-            Icon(
-              station.lastCheckOk ? Icons.check_circle : Icons.cancel_outlined,
-              color: statusColor,
-              size: 18,
+            const SizedBox(width: 8),
+
+            // ── Status dostępności + przycisk play/stop ─────────────────
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  station.lastCheckOk
+                      ? Icons.check_circle
+                      : Icons.cancel_outlined,
+                  color: statusColor,
+                  size: 16,
+                ),
+                const SizedBox(height: 6),
+                _PlayButton(
+                  isPlaying: isPlaying,
+                  isLoading: isLoading,
+                  enabled: station.lastCheckOk,
+                  onTap: onPlayTap,
+                ),
+              ],
             ),
           ],
         ),
@@ -537,7 +662,69 @@ class _StationCard extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Widget: awatar stacji (favicon lub ikona zastępcza)
+// Widget: przycisk play/stop/ładowanie
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _PlayButton extends StatelessWidget {
+  const _PlayButton({
+    required this.isPlaying,
+    required this.isLoading,
+    required this.enabled,
+    required this.onTap,
+  });
+
+  final bool isPlaying;
+  final bool isLoading;
+  final bool enabled;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    if (isLoading) {
+      return const SizedBox(
+        width: 36,
+        height: 36,
+        child: Center(
+          child: SizedBox(
+            width: 22,
+            height: 22,
+            child: CircularProgressIndicator(
+              strokeWidth: 2.5,
+              color: Color(0xFF4CAF50),
+            ),
+          ),
+        ),
+      );
+    }
+
+    final color = !enabled
+        ? Colors.grey
+        : isPlaying
+        ? const Color(0xFFD32F2F)
+        : const Color(0xFF4CAF50);
+
+    return Material(
+      color: color.withOpacity(0.1),
+      shape: const CircleBorder(),
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: enabled ? onTap : null,
+        child: SizedBox(
+          width: 36,
+          height: 36,
+          child: Icon(
+            isPlaying ? Icons.stop_rounded : Icons.play_arrow_rounded,
+            color: color,
+            size: 24,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Widget: awatar stacji
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _StationAvatar extends StatelessWidget {
@@ -571,15 +758,13 @@ class _RadioIcon extends StatelessWidget {
   const _RadioIcon();
 
   @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Icon(Icons.radio, size: 24, color: Color(0xFF4CAF50)),
-    );
-  }
+  Widget build(BuildContext context) => const Center(
+    child: Icon(Icons.radio, size: 24, color: Color(0xFF4CAF50)),
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Widget: chip etykiety (kodek, bitrate)
+// Widget: chip etykiety
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _Chip extends StatelessWidget {
@@ -603,6 +788,41 @@ class _Chip extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: color,
         ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Widget: baner błędu odtwarzacza
+// ─────────────────────────────────────────────────────────────────────────────
+
+class _ErrorBanner extends StatelessWidget {
+  const _ErrorBanner({required this.message, required this.onDismiss});
+
+  final String message;
+  final VoidCallback onDismiss;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0xFFD32F2F),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      child: Row(
+        children: [
+          const Icon(Icons.error_outline, color: Colors.white, size: 18),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              message,
+              style: const TextStyle(color: Colors.white, fontSize: 13),
+            ),
+          ),
+          GestureDetector(
+            onTap: onDismiss,
+            child: const Icon(Icons.close, color: Colors.white, size: 18),
+          ),
+        ],
       ),
     );
   }

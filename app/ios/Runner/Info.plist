@@ -68,3 +68,14 @@
 	</array>
 </dict>
 </plist>
+// Zezwaja na ładowanie http
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+// Zezwala na odtwarzanie dźwięku w tle
+<key>UIBackgroundModes</key>
+<array>
+    <string>audio</string>
+</array>
