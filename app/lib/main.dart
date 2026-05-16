@@ -489,6 +489,7 @@ class _SearchBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              key: const Key('searchField'),
               controller: controller,
               textAlignVertical: TextAlignVertical.center,
               style: const TextStyle(fontSize: 15),
