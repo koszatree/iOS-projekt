@@ -57,7 +57,7 @@ class _AuthorsScreenState extends State<AuthorsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Piąteczka za projekt'),
+        title: const Text('Autorzy projektu'),
         backgroundColor: const Color(0xFF4CAF50),
         foregroundColor: Colors.white,
       ),
